@@ -4,12 +4,14 @@ bus1 = []
 bus2 = []
 buspair = []
 result = []
-firstadjacentbus1= 0
-firstadjacentbus = 0
+dftb = []
+differentfortwobus = []
 secondadjacentbus = 0
+firstadjacentbus1= 0
 
 def comparebus(buspair):
     #print(buspair)
+    firstadjacentbus = 0
     for posisituple in buspair:
         for checktuple in buspair:
             #rint(posisituple,checktuple)
@@ -20,23 +22,23 @@ def comparebus(buspair):
                 firstadjacentbus1= posisituple[0]
                 #rint(firstadjacentbus1)
                 secondadjacentbus = checktuple[1]
-                if posisituple[0] >= firstadjacentbus1  and  checktuple[1] > secondadjacentbus:
-                    firstadjacentbus == firstadjacentbus1
-                    print(firstadjacentbus,firstadjacentbus1)
+                if firstadjacentbus == 0 :
+                    firstadjacentbus = firstadjacentbus1
+                   # print("okay",firstadjacentbus1 , firstadjacentbus)
+                    
+                elif firstadjacentbus < firstadjacentbus1 and  checktuple[1] > secondadjacentbus: 
+                    firstadjacentbus == firstadjacentbus 
                     secondadjacentbus == checktuple[1]
-                    if firstadjacentbus1 < firstadjacentbus:
-                        firstadjacentbus == firstadjacentbus1
-                        
-                        
-                    print(firstadjacentbus,secondadjacentbus)
+                    
                     
                 
             
     #rint(result)
-    print(firstadjacentbus,secondadjacentbus)   
+    print(firstadjacentbus,"-",secondadjacentbus,dftb)   
         
 
 def outputsimple(bus):
+    
     for i in range(len(bus)):
         for j in range(i+1,len(bus)):
             if bus[j] - bus[i] == 1 :
@@ -48,7 +50,10 @@ def outputsimple(bus):
                 #if bus[j] - bus[i] == 1 :
                  #   print("okay", bus[j],bus[i] )
             else:
-                print("not okay",bus[j],bus[i])
+               # print("not okay",bus[j],bus[i])
+                differentfortwobus.append(bus[j])
+               # differentfortwobus.sort()
+    
             
 for i in range(0,numberofbus):
     busnumber = int(input())
@@ -60,8 +65,12 @@ for i in range(0,numberofbus):
 bus.sort()
 print(bus)
 outputsimple(bus)
+# print(differentfortwobus)
+dftb = [*set(differentfortwobus)]
+dftb.sort()
+# print(dftb)
 #print(bus1)
 #print(bus2)
 buspair = list(zip(bus1,bus2))
-print(buspair)
+# print(buspair)
 comparebus(buspair)
