@@ -1,0 +1,67 @@
+numberofbus =int(input("Number of bus: "))
+bus = [] * numberofbus
+bus1 = []
+bus2 = []
+buspair = []
+result = []
+firstadjacentbus1= 0
+firstadjacentbus = 0
+secondadjacentbus = 0
+
+def comparebus(buspair):
+    #print(buspair)
+    for posisituple in buspair:
+        for checktuple in buspair:
+            #rint(posisituple,checktuple)
+            #print(checktuple[0],checktuple[1])
+            if (posisituple[1] == checktuple[0] ):
+                #rint("okay",posisituple[0],checktuple[1])
+                result.append(posisituple)
+                firstadjacentbus1= posisituple[0]
+                #rint(firstadjacentbus1)
+                secondadjacentbus = checktuple[1]
+                if posisituple[0] >= firstadjacentbus1  and  checktuple[1] > secondadjacentbus:
+                    firstadjacentbus == firstadjacentbus1
+                    print(firstadjacentbus,firstadjacentbus1)
+                    secondadjacentbus == checktuple[1]
+                    if firstadjacentbus1 < firstadjacentbus:
+                        firstadjacentbus == firstadjacentbus1
+                        
+                        
+                    print(firstadjacentbus,secondadjacentbus)
+                    
+                
+            
+    #rint(result)
+    print(firstadjacentbus,secondadjacentbus)   
+        
+
+def outputsimple(bus):
+    for i in range(len(bus)):
+        for j in range(i+1,len(bus)):
+            if bus[j] - bus[i] == 1 :
+                #print("okay", bus[j],bus[i] )
+                bus1.append(bus[i])
+                bus2.append(bus[j])
+                i = i+1
+                j = j+1
+                #if bus[j] - bus[i] == 1 :
+                 #   print("okay", bus[j],bus[i] )
+            else:
+                print("not okay",bus[j],bus[i])
+            
+for i in range(0,numberofbus):
+    busnumber = int(input())
+    
+    bus.append(busnumber)
+   
+    
+
+bus.sort()
+print(bus)
+outputsimple(bus)
+#print(bus1)
+#print(bus2)
+buspair = list(zip(bus1,bus2))
+print(buspair)
+comparebus(buspair)
