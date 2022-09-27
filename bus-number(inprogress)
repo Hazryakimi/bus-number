@@ -9,6 +9,8 @@ differentfortwobus = []
 secondadjacentbus = 0
 firstadjacentbus1= 0
 
+
+
 def comparebus(buspair):
     #print(buspair)
     firstadjacentbus = 0
@@ -30,11 +32,11 @@ def comparebus(buspair):
                     firstadjacentbus == firstadjacentbus 
                     secondadjacentbus == checktuple[1]
                     
-                    
+    listToStr = ' '.join([str(y) for y in dftb])               
                 
             
     #rint(result)
-    print(firstadjacentbus,"-",secondadjacentbus,dftb)   
+    print(firstadjacentbus,"-",secondadjacentbus,listToStr)   
         
 
 def outputsimple(bus):
